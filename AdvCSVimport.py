@@ -232,6 +232,13 @@ def advimport():
             jsforms = '''{'sg1':'%s','sg2':'%s','sg3':'%s','pl1':'%s','pl2':'%s','pl3':'%s'}''' % tuple(forms)
             #Log("JSF", jsforms)
 
+            _question = _question.replace("[", '<span class="prp">')
+            _question = _question.replace("]", '</span>')
+            _solution = _solution.replace("[", '<span class="prp">')
+            _solution = _solution.replace("]", '</span>')
+            
+            print _question
+
             data = [key, _question, _solution, _chapt, _sect, _type, _subtype, _symb, modus, temp, jsforms]
           
           
@@ -313,7 +320,7 @@ def advimport():
                 _subtype = '-CONS'
                 stem = s
                 exts = ['', '', '_es', '_es']
-                print '!!!! >> check this': stem, exts
+                print '!!!! >> check this:', stem, exts
                 
                 
             #decl = decline(stem, exts, wrap=('<span class="ext">', '</span>'))
