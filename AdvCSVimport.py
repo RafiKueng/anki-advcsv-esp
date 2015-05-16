@@ -11,7 +11,7 @@
 ###############################################################################
 # SETTINGS
 
-deck_name = "SpanishGerman" # which deck to add the cards to
+deck_name = "Spanish Th2" # which deck to add the cards to
 
 N_HEADER_LINES=2 # how many lines to skip at beginning
 
@@ -356,7 +356,7 @@ def advimport():
         if len(data) > 0:
             print data[1], data[2]
             with codecs.open('multiimport.tsv', 'w', encoding='utf-8') as f:
-                s = "\t".join(data)
+                s = u"\t".join(data)
                 f.write(s)
                 #print s
             
