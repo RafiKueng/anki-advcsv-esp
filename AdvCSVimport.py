@@ -139,7 +139,7 @@ def advimport():
 
 
         elif _type == u"rule":
-            print "   Rule",
+            print "   Rule        ",
             
             model = "Rule"
             key = _question
@@ -148,7 +148,7 @@ def advimport():
 
 
         elif _type == u"pron":
-            print "   Pronoun",
+            print "   Pronoun     ",
             
             model = "Simple"
             key = _solution
@@ -157,7 +157,7 @@ def advimport():
 
 
         elif _type == u"wend":
-            print "   Sentence",
+            print "   Sentence    ",
             
             model = "Simple"
             key = _solution
@@ -166,7 +166,7 @@ def advimport():
             
 
         elif _type == u"prep":
-            print "   Preposition",
+            print "   Prepos      ",
             
             model = "Simple"
             key = _solution
@@ -175,7 +175,7 @@ def advimport():
 
 
         elif _type == u"adv":
-            print "   Adverb",
+            print "   Adverb      ",
             
             model = "Simple"
             key = _solution
@@ -184,7 +184,7 @@ def advimport():
 
 
         elif _type == u"nom": # Noun
-            print "   Noun",
+            print "   Noun        ",
             
             model = "Noun"
             
@@ -209,7 +209,7 @@ def advimport():
 
             
         elif _type == u"verb":
-            print "   Verb", 
+            print "   Verb        ", 
             
             modus = _rests[0]
             temp = _rests[1]
@@ -237,13 +237,13 @@ def advimport():
             _solution = _solution.replace("[", '<span class="prp">')
             _solution = _solution.replace("]", '</span>')
             
-            print _question
+            #print _question
 
             data = [key, _question, _solution, _chapt, _sect, _type, _subtype, _symb, modus, temp, jsforms]
           
           
         elif _type == u"adj":
-            print "   Adjective",
+            print "   Adjective   ",
             
             s = _solution
             
@@ -297,7 +297,7 @@ def advimport():
                 exts = ['ist_a', 'ist_a', 'ist_as', 'ist_as']
             
             elif s[-2:] == u'ón':
-                _subtype = '-ón'
+                _subtype = u'-ón'
                 stem = s[:-2]
                 exts = [u'*ón_', '*on_a', '*on_es', '*on_as']
 
@@ -320,7 +320,7 @@ def advimport():
                 _subtype = '-CONS'
                 stem = s
                 exts = ['', '', '_es', '_es']
-                print '!!!! >> check this:', stem, exts
+                print '!!!! >> check this:', stem, exts ,"\n                     ",
                 
                 
             #decl = decline(stem, exts, wrap=('<span class="ext">', '</span>'))
@@ -354,9 +354,11 @@ def advimport():
         
         
         if len(data) > 0:
-            print data[1], data[2]
+            print data[1], " | ", data[2]
             with codecs.open('multiimport.tsv', 'w', encoding='utf-8') as f:
-                s = u"\t".join(data)
+                #data = [_.encode("utf8") for _ in data]
+                s = "\t".join(data)
+                #f.write(s.decode("utf8"))
                 f.write(s)
                 #print s
             
