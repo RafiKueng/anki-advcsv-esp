@@ -11,7 +11,7 @@
 ###############################################################################
 # SETTINGS
 
-deck_name = "Spanish Th2" # which deck to add the cards to
+deck_name = "Spanish A1.1 Tema 2" # which deck to add the cards to
 
 N_HEADER_LINES=2 # how many lines to skip at beginning
 
